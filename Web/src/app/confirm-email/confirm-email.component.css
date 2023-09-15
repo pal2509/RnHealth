@@ -1,0 +1,17 @@
+.btnContainer{
+display: flex;
+justify-content: space-evenly;
+}
+
+.btn{
+    width: 100px;
+}
+
+.emailField{
+    width: 100%;
+}
+
+.formContainer{
+    display: block;
+    justify-content: center;
+}

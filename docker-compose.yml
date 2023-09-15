@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./RnAPI
+    depends_on:
+      - rnmongo
+    ports:
+      - '50002:80'
+    restart: unless-stopped
+    networks:
+      - rnhealth
+  frontend:
+    build:
+      context: ./Web
+    ports:
+      - '50003:80'
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - rnhealth
+  rnmongo:
+    build:
+      context: ./RnHealthDB
+    volumes:
+      - mongodbdata:/data/db
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    networks:
+      - rnhealth  
+volumes:
+  mongodbdata: 
+networks:
+  rnhealth:

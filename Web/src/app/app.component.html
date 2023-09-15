@@ -1,0 +1,53 @@
+<mat-toolbar class="toolbar">
+<div class="desktopContainer">
+  <a  class="link_main" (click)="homeClick()">
+    <img src="../assets/logo.png" height="40px" />
+  </a>
+
+  <div *ngIf="isLoggedIn$; else elseBlock">
+    <button class="btn" mat-button [matMenuTriggerFor]="menu">Dashboard</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="dashboardClick()">Plataforma</button>
+      <button mat-menu-item (click)="nustDashboardClick()">Dados</button>
+    </mat-menu>
+    <button class="btn" mat-button (click)="readingListClick()">Leituras</button>
+    <button class="btn" mat-button (click)="avaliationListClick()">Avaliações</button>
+    <button class="btn" mat-button (click)="LocationsClick()">Localizações</button>
+    <button class="btn" mat-button (click)="NewsClick()">Notícias</button>
+
+  </div>
+  <ng-template #elseBlock>
+    <button class="btn" mat-button (click)="radonClick()">Radão</button>
+    <button class="btn" mat-button (click)="avaliationClick()">Avaliação</button>
+    <!-- <button class="btn" mat-button (click)="readingClick()"></button> -->
+  </ng-template>
+
+  <div class="logoutBtn" *ngIf="isLoggedIn$; else elseBlockLog">
+    <button class="btn" mat-raised-button color="primary" (click)="logoutClick()">Logout</button>
+  </div>
+  <ng-template #elseBlockLog>
+    <div class="loginBtn">
+      <button class="btn" mat-raised-button color="primary" (click)="loginClick()">
+        Login
+      </button>
+
+    </div>
+  </ng-template>
+</div>
+<div class="mobileContainer">
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="radonClick()">Radão</button>
+    <button mat-menu-item (click)="avaliationClick()">Avaliação</button>
+  </mat-menu>
+  <button mat-icon-button (click)="homeClick()" class="homeBtn">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>
+  
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+

@@ -1,0 +1,76 @@
+<mat-drawer-container class="drawerContainer" autosize>
+    <mat-drawer #drawer class="avalitaionDrawer" mode="side" position="end" >
+       <app-create-news-form [new]="selectedNew" (deleteEvent)="deleteEvent($event)" [submitState]="submitState" (updateImageEvent)="updateImageEvent($event)" (drawerClose)="drawerToggle()"></app-create-news-form>
+    </mat-drawer>
+
+
+    <div class="cardOpt">
+        <mat-card class="matCard">
+
+            <mat-card-content>
+                <button mat-raised-button color="primary" (click)="navigateToSubmitNew()">Nova notícia</button>
+                <!-- <div class="filterItems">
+                    <mat-form-field appearance="outline" class="filterName">
+                        <mat-label>Filtro</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Pesquisa" #input>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="startPicker">
+                        <input matInput [matDatepicker]="pickerStart" placeholder="Data de início" #input
+                            [(ngModel)]="selectedDateStart">
+                        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerStart></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="endPicker">
+                        <input matInput [matDatepicker]="pickerEnd" placeholder="Data de fim" #input
+                            [(ngModel)]="selectedDateEnd">
+                        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerEnd></mat-datepicker>
+                    </mat-form-field>
+
+                    <button mat-raised-button color="primary"
+                        (click)="applyDateFilter(selectedDateStart, selectedDateEnd)" class="applyBtn">Aplicar</button>
+                    <button mat-raised-button color="primary" (click)="clearDateFilter()"
+                        class="clearBtn">Limpar</button>
+                </div> -->
+                <div class="table">
+                    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" #myTable>
+
+
+                        <ng-container matColumnDef="created_At">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="created_At"> Data </th>
+                            <td mat-cell *matCellDef="let element"> {{element.created_At | date: "dd-MM-yyyy" }} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="title">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Título </th>
+                            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="mainText">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header="mainText"> Texto principal </th>
+                            <td mat-cell *matCellDef="let element"> {{element.mainText}} </td>
+                        </ng-container>
+
+                
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectNew(row)">
+                        </tr>
+
+                        <!-- <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                        </tr> -->
+                    </table>
+
+                    <mat-paginator [length]="dataLength" [pageSize]="10" #myPaginator>
+                    </mat-paginator>
+                </div>
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+
+</mat-drawer-container>

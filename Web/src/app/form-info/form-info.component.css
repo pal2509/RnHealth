@@ -1,0 +1,39 @@
+.container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+}
+
+.btn{
+    width: 200px;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.imgWrapper{
+    display: flex;
+    justify-content: center;
+}
+.modelImg{
+    width: 900px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container{
+      height: auto;
+    }
+    .modelImg{
+        width: 280px;
+    }
+}
+
+
+@media only screen and (max-height: 1100px) {
+    .container{
+      height: auto;
+    }
+}

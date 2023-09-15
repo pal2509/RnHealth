@@ -1,0 +1,48 @@
+<div class="createNewsContainer">
+<mat-card>
+    <mat-card-content>
+
+
+            <form (submit)="submitNew()" [formGroup]="form" class="formContent">
+                <mat-form-field appearance="outline">
+                    <mat-label>Título</mat-label>
+                    <input matInput [(ngModel)]="this.new.title" formControlName="title"/>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="textArea">
+                    <mat-label>Texto principal</mat-label>
+                    <textarea matInput [(ngModel)]="this.new.mainText" formControlName="mainText" ></textarea>
+                 
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Link para a notícia</mat-label>
+                    <input matInput [(ngModel)]="this.new.url" formControlName="url"/>
+                </mat-form-field>
+
+                <label for="fileInput">Select a file:</label>
+                <input id="file" type="file" (change)="onFileSelected($event)">
+            
+                <button mat-raised-button color="primary" type="submit" [disabled]="!this.form.valid" class="subBtn" *ngIf="this.submitState">Guardar</button>
+                
+            </form>
+            <div class="modifyBtn" *ngIf="!this.submitState">
+                <button mat-raised-button color="primary"  (click)="updateNew()">Atualizar</button>
+                <button mat-raised-button color="warn"  (click)="deleteNew()">Apagar</button>
+                <button mat-raised-button color="primary" [disabled]="!this.imageIsSelected" (click)="updateImage()">Atualizar a imagem</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="newsCard">
+        <mat-card-content class="newsContent">
+          <h3 class="newsTitle">{{this.new.title}}</h3>
+          <img src="{{this.new.image}}" class="newsImage">
+          <p class="newsText">{{this.new.mainText}}</p>
+        </mat-card-content>
+      </mat-card>
+
+</div>
+
+
+
+

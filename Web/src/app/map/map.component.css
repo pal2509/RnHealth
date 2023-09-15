@@ -1,0 +1,170 @@
+.ol-map {
+  width: auto;
+  height: 500px;
+  margin: auto;
+}
+
+.wrapper{
+  height: 100vh;
+}
+
+.mapContainer {
+  margin: 10px;
+  /* border: 1px solid red; */
+}
+
+.cardContainer{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formContainer {
+  margin: 10px;
+  /* border: 1px solid red;  */
+}
+
+.locationTitle{
+  text-align: center;
+
+}
+
+.titleLocation{
+  display: flex;
+  justify-content: center;
+}
+
+.dataForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.formTitle {
+  text-align: center;
+  padding-bottom: 2px;
+  padding-top: 4px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.locatioDataFields {
+  align-items: center;
+}
+
+.cardTitle{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+mat-form-field {
+  display: inline-block;
+  width: 46%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-height: 1050px) {
+  .wrapper{
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .ol-map {
+    width: auto;
+    height: 200px;
+    margin: auto;
+  }
+  .wrapper{
+    height: auto;
+  }
+  
+  .mapContainer {
+    margin: 10px;
+    /* border: 1px solid red; */
+  }
+  
+  .cardContainer{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .formContainer {
+    margin: 10px;
+    /* border: 1px solid red;  */
+  }
+  
+  .locationTitle{
+    text-align: center;
+  
+  }
+  
+  .titleLocation{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .dataForm {
+    display: block;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .formTitle {
+    text-align: center;
+    padding-bottom: 2px;
+    padding-top: 4px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+  
+  .locatioDataFields {
+    align-items: center;
+  }
+  
+  .cardTitle{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  
+  mat-form-field {
+    display: inline-block;
+    width: 46%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin: auto;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}

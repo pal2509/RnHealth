@@ -1,0 +1,62 @@
+<!-- <mat-card class="tokenSubmitCard">
+    <mat-card-title class="title">Leituras</mat-card-title>
+    <mat-card-content class="title">
+        <p>Insira o seu token de acesso</p>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Token</mat-label>
+            <input matInput type="text" [(ngModel)]="token">
+        </mat-form-field>
+        <button class="submitData" mat-raised-button color="primary" (click)="openReading()">Abrir leitura</button>
+    </mat-card-content>
+</mat-card> -->
+
+<div class="cardContainerDiv">
+
+  <mat-card class="cardContainer">
+    <mat-card-content>
+
+      <div *ngIf="readingExists; else elseBlock">
+        <div class="readingContainer">
+          <div class="mapContainer">
+
+            <mat-form-field appearance="outline" class="addressField">
+              <mat-label>Morada</mat-label>
+              <input disabled matInput [(ngModel)]="this.showAddress" />
+            </mat-form-field>
+
+            <div id="ol-map" class="ol-map"></div>
+
+          </div>
+          <div class="formContainer">
+
+            <div *ngIf="readingExists; else elseBlock">
+
+        
+              <app-avaliation [avaliation]="this.avaliation"></app-avaliation>
+              <hr />
+              <div class="btnContainer">
+                <button class="addBtn" mat-raised-button color="primary" (click)="addReading()">
+                    Adicionar leitura
+                </button>
+            </div>
+  
+
+            </div>
+            <ng-template #elseBlock>
+              <mat-card-content>
+                <h1>Leitura não existe</h1>
+              </mat-card-content>
+
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <h1>Não existe leitura</h1>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer class="footer"></app-footer>

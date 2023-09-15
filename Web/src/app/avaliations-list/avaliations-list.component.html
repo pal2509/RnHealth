@@ -1,0 +1,49 @@
+<mat-drawer-container class="drawerContainer" autosize>
+    <mat-drawer #drawer class="avalitaionDrawer" mode="side" position="end">
+      <app-avaliation class="avaliationDetails" [avaliation]="selectedAvaliation" *ngIf="selectedAvaliation"></app-avaliation>
+    </mat-drawer>
+  
+    <!-- <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle sidenav
+      </button>
+    </div> -->
+    
+    <div class="cardOpt">
+      <div>
+      <!-- Button to clear selection -->
+      <button class="Btn"
+        mat-raised-button
+        color="primary"
+        color="primary"
+        (click)="clearSelection()"
+      >
+        Limpar seleção
+      </button>
+      <button class="Btn"
+      mat-raised-button
+      color="primary"
+      color="primary"
+      (click)="ExportData()"
+    >
+      Exportar dados
+    </button>
+      </div>
+
+      <!-- AG Grid Angular Component -->
+      <ag-grid-angular
+        style="width: 100%; height: 100%"
+        class="ag-theme-material"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData$ | async"
+        [rowSelection]="'multiple'"
+        [animateRows]="true"
+        (gridReady)="onGridReady($event)"
+        (cellClicked)="onCellClicked($event)"
+        [gridOptions]="gridOptions"
+      ></ag-grid-angular>
+    </div>
+  
+  </mat-drawer-container>
+  

@@ -1,0 +1,52 @@
+.table {
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cardOpt {
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.filterName {
+  width: 40%;
+}
+
+.applyBtn {
+  margin-left: 10px;
+  height: 56px;
+}
+
+.clearBtn {
+  margin-left: 10px;
+  height: 56px;
+}
+
+.filterItems {
+  display: flex;
+}
+
+.startPicker {
+  margin-left: 10px;
+}
+
+.endPicker {
+  margin-left: 10px;
+}
+
+.drawerContainer {
+  background-color: inherit;
+  height: 800px;
+}
+
+.avalitaionDrawer {
+  width: 40%;
+  padding-left: 20px;
+}
+
+.matCard {
+  height: 800px;
+}

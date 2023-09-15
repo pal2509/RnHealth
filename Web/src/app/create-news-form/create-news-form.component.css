@@ -1,0 +1,52 @@
+.createNewsContainer{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.formCard{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formContent{
+    display: inline-grid;
+    width: 100%;
+
+}
+
+.textArea{
+    height: 300px;
+}
+
+.subBtn{
+    margin-top: 20px;
+}
+
+.newsTitle{
+    text-align: center;
+
+}
+
+.newsImage{
+    width: 300px;
+    height: auto;
+}
+
+.newsCard{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 330px;
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.modifyBtn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}

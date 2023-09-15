@@ -1,0 +1,66 @@
+<div class="wrapper">
+
+
+<mat-card  class="cardContainer">
+
+    <div class="dataForm">
+
+      <div class="mapContainer">
+
+        <div class="locatioDataFields">
+          <div class="titleLocation">
+            <h3 class="locationTitle"  [matTooltip]="toolTips.locationTitle">Localização</h3>
+          </div>
+          
+          <mat-form-field appearance="outline">
+            <mat-label  [matTooltip]="toolTips.postCode">Código postal</mat-label >
+            <input [disabled]="isSubmited" matInput [(ngModel)]="postCode" (input)="searchPostCode()"
+              [pattern]="postCodePattern" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Rua</mat-label>
+            <input [disabled]="isSubmited" matInput [(ngModel)]="this.avaliation.location.address" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Latitude</mat-label>
+            <input [disabled]="isSubmited" matInput [(ngModel)]="location.latitude" (input)="searchLatLon()"
+              type="number" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Longitude</mat-label>
+            <input [disabled]="isSubmited" matInput [(ngModel)]="location.longitude" (input)="searchLatLon()"
+              type="number" />
+          </mat-form-field>
+        </div>
+
+        <div id="ol-map" class="ol-map"></div>
+        <div>
+          <h5>Clique no mapa para inserir um marcador na localização do edifício.</h5>
+          <h5>Também pode inserir o código postal para ir para a freguesia aonde se encontra o edifício.</h5>
+        </div>
+
+      </div>
+      <div class="formContainer">
+
+        <div class="form">
+
+          <div *ngIf="!isSubmited; else elseBlock">
+            <app-data-form [location]="location" (setLocation)="setMapLocation($event)"
+              (setSubmitState)="setSubmitState($event)" [avaliation]="avaliation" [locationStatus]="locationStatus"></app-data-form>
+          </div>
+          <ng-template #elseBlock>
+            <app-avaliation [avaliation]="avaliation"> </app-avaliation>
+            <hr>
+            <app-confirm-email *ngIf="!this.isConfirmed" (setEmailState)="setEmailState($event)" [avaliation]="avaliation"></app-confirm-email>
+          </ng-template>
+
+        </div>
+
+      </div>
+    </div>
+
+</mat-card>
+</div>
+<app-footer class="footer"></app-footer>

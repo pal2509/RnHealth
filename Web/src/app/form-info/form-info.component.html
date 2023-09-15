@@ -1,0 +1,43 @@
+
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+
+
+    <h3>O modelo utilizado</h3>
+    <p>Este modelo de pré-diagnóstico do radão foi criado apartir de dados recolhidos de edifícios que foram avaliados, recolhendo-se as características e efetuado medições durante longos periodos de tempo.</p>
+    <p>Os resultados do modelo podem não ser precisos, denotando-se que existe alguma imprecisão por parte do modelo. Para ter a certeza do resultado é necessário fazer uma avaliação no local e tomar medidas de mitigação caso seja necessário.</p>
+    <p>Caso o modelo indique um potencial médio ou alto é recomendado fazer uma avaliação <i>in situ</i> para determinar os níveis de radão reais.</p>
+    <div class="imgWrapper">
+        <img src="../../assets/modelo.jpg" class="modelImg">
+    </div>
+
+    <h3>Dados para a avaliação</h3>
+    <p>Os dados necessários para a realização de uma avaliação do potencial do radão são:</p>
+    <ul>
+        <li>A localização aproximada do edifício. Esta localização é utilizada para saber aproximadamente o valor de radiação gama do local, através do mapa radiológico de Portugal.</li>
+        <li>O ano de construção.</li>
+        <li>O número de pisos totais do edifício.</li>
+        <li>Os materiais de construção do piso e paredes. Estes estão divididos em duas partes, o material que compõe a base da construção e o acabamento.</li>
+        <li>O tipo de ventilação. Esta pode ser natural, que significa que a ventilação do espaço só é feita através de janelas e portas. E mista que para além de janelas e portas existe ainda, algum tipo de ventilação mecânica, como ar condicionado/HVAC/AVAC </li>
+        <li>Se o edifício sofreu algum recondicionameno térmico, nomeadamente a instalação de janelas com melhores características de isolamento.</li>
+        <li>O piso da divisão que se predente avaliar.</li>
+        <li>O número de pisos abaixo dessa divisão.</li>
+    </ul>
+    <h3>Avaliação no local</h3>
+    <p>A avaliação no local ou avaliação <i>in situ</i> é efetuada colocando um dispostivo no compartimento a ser avaliação durante um determinado período de tempo.</p>
+    <p>Os dispositvos de medição podem ser divididos em duas categorias: Ativos e Passivos.</p>
+    <ul>
+        <li>Os dispositivos ativos apresentam o valor medido no momento de utilização, alguns apresentado estes valores como médias de vários dias.</li>
+        <li>Os dispositivos passivos recolhem a atividade do radão em longos períodos de tempo e requerem serem revelados por processos laboratoriais.</li>
+    </ul>
+    <p>O período mínimo para uma avaliação deverá ser de 2 semanas.</p>
+    <div class="btnContainer">
+        <button mat-raised-button color="primary" (click)="avaliationClick()" class="btn">Avaliar</button>
+    </div>
+
+</mat-card-content>
+</mat-card>
+</div>
+<app-footer></app-footer>

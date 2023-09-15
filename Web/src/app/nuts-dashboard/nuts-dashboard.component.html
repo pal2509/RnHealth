@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="sideBar">
+        <button mat-raised-button color="primary" class="btn" (click)="LoadNuts('nutsI')">Nuts I</button>
+        <button mat-raised-button color="primary" class="btn" (click)="LoadNuts('nutsII')">Nuts II</button>
+        <button mat-raised-button color="primary" class="btn" (click)="LoadNuts('nutsIII')">Nuts III</button>
+
+    </div>
+
+    <div class="contentContainer">
+        <div class="charts">
+            <mat-card class="matCard">
+                <mat-card-content>
+                    <div echarts [options]="options_nuts_chart_rn"></div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="matCard">
+                <mat-card-content>
+                    <div echarts [options]="options_nuts_chart_gamma"></div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="table">
+            <ag-grid-angular style="width: auto; height: 100%" class="ag-theme-material" [columnDefs]="columnDefs"
+            [defaultColDef]="defaultColDef" [rowData]="rowData$ | async" [rowSelection]="'multiple'"
+            [animateRows]="true" (gridReady)="onGridReady($event)" [gridOptions]="gridOptions"></ag-grid-angular>
+        </div>
+
+    </div>
+
+</div>

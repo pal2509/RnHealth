@@ -1,0 +1,293 @@
+.containerInfo {
+  display: flex;
+  margin-right: auto;
+  margin-bottom: auto;
+  justify-content: center;
+}
+
+.mainContent {
+  /* display: flex; */
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  /* justify-content: center; */
+  margin-bottom: 20px;
+}
+
+.contentInfo {
+  display: inline;
+}
+
+.newsSlider {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  overflow: auto;
+}
+
+.newsSlider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.newsSlider {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.newsImage {
+  width: 290px;
+  height: auto;
+}
+
+
+.newsCard {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 320px;
+  vertical-align: top;
+  height: 400px;
+}
+
+.newsTitle {
+  text-align: center;
+}
+
+.radonInfo {
+  width: 70%;
+  height: 900px;
+}
+
+.newsContent {
+  justify-content: center;
+}
+
+
+
+.slider {
+  width: auto;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  background: #e6e6e6;
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+.slide {
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 1002;
+  display: block;
+  top: 50%;
+  margin-top: -35px;
+  width: 36px;
+  height: 71px;
+  outline: none !important;
+  cursor: pointer;
+  background: url(../../assets/blank.gif) no-repeat;
+  border: none;
+}
+
+.arrow.prev {
+  opacity: 0.2;
+  left: 20px;
+  background-image: url(../../assets/paddle_prev_999.png);
+  transition: 0.2s linear all;
+}
+
+.arrow.next {
+  opacity: 0.2;
+  right: 20px;
+  background-image: url(../../assets/paddle_next_999.png);
+  transition: 0.2s linear all;
+}
+
+.arrow.prev:hover {
+  opacity: 1;
+  background-image: url(../../assets/paddle_prev_fff.png);
+}
+
+.arrow.next:hover {
+  opacity: 1;
+  background-image: url(../../assets/paddle_next_fff.png);
+}
+
+.nav {
+  text-align: center;
+  display: block;
+  position: absolute;
+  z-index: 1002;
+  left: 0;
+  bottom: -4px;
+  right: 0;
+  height: 48px;
+}
+
+.nonDraggableImage {
+  -webkit-user-drag: none;
+}
+
+.nav .wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 1em 0 0.8em;
+}
+
+.nav ul {
+  margin: 0;
+  width: 100%;
+}
+
+.nav .dot,
+.nav .dot span {
+  display: inline-block;
+  zoom: 1;
+  cursor: pointer;
+}
+
+.dots .dot {
+  position: relative;
+  margin: 0 8px;
+  width: 12px;
+  height: 12px;
+}
+
+.dots .dot span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid transparent;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s, border-color 0.25s;
+  -moz-transition: background-color 0.25s, border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
+}
+
+.dots .dot span.active {
+  border-color: #fff;
+  background-color: transparent;
+}
+
+.logoIpca{
+  height: 200px;
+  width: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .slider {
+    width: auto;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    background: #e6e6e6;
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
+  
+  .slide {
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+
+  .arrow {
+    display: none;
+    position: absolute;
+    z-index: 1002;
+    display: block;
+    top: 50%;
+    margin-top: -35px;
+    width: 36px;
+    height: 71px;
+    outline: none !important;
+    cursor: pointer;
+    background: url(../../assets/blank.gif) no-repeat;
+    border: none;
+  }
+  
+  .arrow.prev {
+    display: none;
+    opacity: 0.2;
+    left: 20px;
+    background-image: url(../../assets/paddle_prev_999.png);
+    transition: 0.2s linear all;
+  }
+  
+  .arrow.next {
+    display: none;
+    opacity: 0.2;
+    right: 20px;
+    background-image: url(../../assets/paddle_next_999.png);
+    transition: 0.2s linear all;
+  }
+  
+  .arrow.prev:hover {
+    display: none;
+    opacity: 1;
+    background-image: url(../../assets/paddle_prev_fff.png);
+  }
+  
+  .arrow.next:hover {
+    display: none;
+    opacity: 1;
+    background-image: url(../../assets/paddle_next_fff.png);
+  }
+
+  .containerInfo {
+    display: flex;
+    margin-right: auto;
+    margin-bottom: auto;
+    justify-content: center;
+  }
+  
+  .mainContent {
+    /* display: flex; */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    /* justify-content: center; */
+    margin-bottom: 20px;
+  }
+
+  .logoIpca{
+    height: 50px;
+    width: auto;
+  }
+  
+  .contentInfo {
+    display: inline;
+  }
+
+  .radonInfo {
+    width: 100%;
+    height: auto;
+  }
+  .newsSlider {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,127 @@
+<div class="formContainer">
+    <div class="formData">
+        <form [formGroup]="form">
+
+        <h3 class="title">Dados da avaliação</h3>
+        <div>
+            <p>Preencha os campos seguintes com os dados que caracterizam a avaliação feita. Estes dados serão úteis para os estudo e melhoramento do modelo.</p>
+        </div>
+        <div class="fieldInput">
+            <mat-form-field class="formField" appearance="outline" style="margin-right: 2%">
+                <mat-label>Data de início</mat-label>
+                <input matInput [matDatepicker]="startDatePicker" formControlName="startDate"/>
+                <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #startDatePicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="formField" appearance="outline" style="margin-left: 2%">
+                <mat-label>Data de fim</mat-label>
+                <input matInput [matDatepicker]="endDataPicker"formControlName="endDate"/>
+                <mat-datepicker-toggle matIconSuffix [for]="endDataPicker"></mat-datepicker-toggle>
+                <mat-datepicker #endDataPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="fieldInput">
+            <mat-form-field class="formField" appearance="outline" style="margin-right: 2%" >
+                <mat-label>Valor medido</mat-label>
+                <input matInput type="number" formControlName="rnValue"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="formField" style="margin-left: 2%;">
+                <mat-label>Dispositivo</mat-label>
+                <mat-select formControlName="device" >
+                    <mat-option value="Ativo">
+                        Ativo
+                    </mat-option>
+                    <mat-option value="Passivo">
+                        Passivo
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <hr>
+        <h3 class="title"> Dados complementares</h3>
+        <div>
+            <p>Estes dados complementares são necessários para o estudo do radão, e podem vir a melhorar o modelo.</p>
+        </div>
+        <div class="fieldInput">
+            <mat-form-field appearance="outline" class="formField" style="margin-right: 2%;">
+                <mat-label>Tipo de sala</mat-label>
+                <mat-select  formControlName="typeOfRoom">
+                    <mat-option value="Armazém">
+                        Armazém
+                    </mat-option>
+                    <mat-option value="Cave">
+                        Cave
+                    </mat-option>
+                    <mat-option value="Cozinha">
+                        Cozinha
+                    </mat-option>
+
+                    <mat-option value="Dispensa">
+                        Dispensa
+                    </mat-option>
+                    <mat-option value="Escritório">
+                        Escritório
+                    </mat-option>
+                    <mat-option value="Garagem">
+                        Garagem
+                    </mat-option>
+                    <mat-option value="Quarto">
+                        Quarto
+                    </mat-option>
+                    <mat-option value="Sótão">
+                        Sótão
+                    </mat-option>
+                    <mat-option value="WC">
+                        WC
+                    </mat-option>
+
+
+
+
+
+
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline" style="margin-left: 2%">
+                <mat-label>Horas de ocupação media por dia</mat-label>
+                <input matInput type="number" formControlName="ocupation"/>
+            </mat-form-field>
+        </div>
+        <div class="fieldInput">
+            <mat-form-field class="formField" appearance="outline" style="margin-right: 2%">
+                <mat-label>Piso no edifício</mat-label>
+                <mat-select  formControlName="floor">
+                    <mat-option value="-1">
+                        Cave
+                    </mat-option>
+                    <mat-option value="0">
+                        Rés do chão
+                    </mat-option>
+                    <mat-option value="1">
+                        Piso 1
+                    </mat-option>
+                    <mat-option value="2">
+                        Piso 2
+                    </mat-option>
+                    <mat-option value="3">
+                        Piso 3 ou superior
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+            <mat-form-field class="formField" appearance="outline" style="margin-left: 2%">
+                <mat-label>Nome/Marca do Dispositivo</mat-label>
+                <input matInput type="text" formControlName="deviceName"/>
+            </mat-form-field>
+        </div>
+    </form>
+    </div>
+    <div class="Btn">
+        <button class="submitData" mat-raised-button color="primary" (click)="submitReading()" [disabled]="!this.form.valid">
+            Submeter
+        </button>
+    </div>
+</div>

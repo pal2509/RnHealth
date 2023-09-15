@@ -1,0 +1,29 @@
+
+import { Pipe, PipeTransform } from "@angular/core";
+
+
+export class MyPostCodePipe implements PipeTransform {
+
+  private SEPARATOR: string;
+
+  constructor() {
+    // TODO comes from configuration settings
+    this.SEPARATOR = "-";
+  }
+
+  transform(value: number | string): string {
+    let [ integer, fraction = "" ] = (value || "").toString()
+      .split(this.SEPARATOR);
+
+
+
+    return integer;
+  }
+
+  parse(value: string, fractionSize: number = 2): string {
+
+
+    return value;
+  }
+
+}

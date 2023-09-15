@@ -1,0 +1,34 @@
+
+<div class="statCards">
+    <mat-card class="statCard">
+        <mat-card-title>Leituras</mat-card-title>
+        <mat-card-content><h3>{{this.dashCardsStats.readings}}</h3></mat-card-content>
+    </mat-card>
+    <mat-card class="statCard">
+        <mat-card-title>Avaliações</mat-card-title>
+        <mat-card-content><h3>{{this.dashCardsStats.avaliations}}</h3></mat-card-content>
+    </mat-card>
+    <mat-card class="statCard">
+        <mat-card-title>Racio</mat-card-title>
+        <mat-card-content><h3>{{this.dashCardsStats.ratio}}%</h3></mat-card-content>
+    </mat-card>
+    <mat-card class="statCard">
+        <mat-card-title>F1-Score</mat-card-title>
+        <mat-card-content><h3>{{this.dashCardsStats.fScore}}%</h3></mat-card-content>
+    </mat-card>
+
+</div>
+
+<div class="charts">
+    <mat-card class="chart">
+        <mat-card-content>
+            <div echarts [options]="options_LineChart"></div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="chart">
+        <mat-card-content>
+            <div echarts [options]="options_PieChart"></div>
+        </mat-card-content>
+    </mat-card>
+
+</div>

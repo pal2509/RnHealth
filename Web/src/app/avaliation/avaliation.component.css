@@ -1,0 +1,25 @@
+.caractCard {
+  background-color: #f3e5f5;
+}
+
+.title {
+  text-align: center;
+}
+
+.mat-grid-tile-content {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+.classification {
+  text-align: center;
+}
+
+
+
+.mat-mdc-table {
+  width: 100%;
+  max-height: 152px;
+  overflow: auto;
+}
+

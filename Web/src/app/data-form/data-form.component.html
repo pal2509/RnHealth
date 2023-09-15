@@ -1,0 +1,251 @@
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Data de construção</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let age of ages" [value]="age.value">
+      {{ age.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<!-- <div class="location">
+  <div class="latitude">
+    <mat-form-field appearance="fill">
+      <mat-label>Latitude</mat-label>
+      <input matInput [(ngModel)]="location.latitude" />
+    </mat-form-field>
+  </div>
+  <div class="longitude">
+    <mat-form-field appearance="fill">
+      <mat-label>Longitude</mat-label>
+      <input matInput [(ngModel)]="location.longitude" />
+    </mat-form-field>
+  </div>
+</div> -->
+<form [formGroup]="form" *ngIf="!isLoading">
+
+  <p [matTooltip]="toolTips.buildingTitle">Dados do edifício</p>
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <!-- <mat-form-field class="formField" appearance="outline">
+        <mat-label>Ano de construção do edifício</mat-label>
+        <input matInput [matDatepicker]="dp" placeholder="Month and Year" [formControl]="date" />
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event, dp)"
+          panelClass="example-month-picker" formControlName="age">
+        </mat-datepicker>
+      </mat-form-field> -->
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Ano de construção</mat-label>
+        <input matInput type="number" min="1000" max="2050" [(ngModel)]="this.avaliation.building.age"
+          formControlName="buildingYear" [matTooltip]="toolTips.constructionData" />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Nº de pisos </mat-label>
+        <input matInput type="number" min="0" [(ngModel)]="this.avaliation.building.nFloors" formControlName="nFloors"
+          [matTooltip]="toolTips.nFloors" />
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr>
+
+  <p [matTooltip]="toolTips.floorMat">Material do piso</p>
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Base do piso</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.floorBase" formControlName="floorBase"
+          [matTooltip]="toolTips.floorBase">
+          <mat-option *ngFor="let floor of this.floor_base" [value]="floor.value">
+            {{floor.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label>Acabamento</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.floorFinish" formControlName="floorFinish"
+          [matTooltip]="toolTips.floorFinish">
+          <mat-option *ngFor="let floor of floor_finish" [value]="floor.value">
+            {{ floor.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr>
+
+  <p [matTooltip]="toolTips.wallMat">Material das paredes</p>
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Base da parede</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.wallBase" formControlName="wallBase"
+          [matTooltip]="toolTips.wallBase">
+          <mat-option *ngFor="let wall of wall_base" [value]="wall.value">
+            {{ wall.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label>Acabamento</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.wallFinish" formControlName="wallFinish"
+          [matTooltip]="toolTips.wallFinish">
+          <mat-option *ngFor="let wall of wall_finish" [value]="wall.value">
+            {{ wall.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr>
+  <p [matTooltip]="toolTips.ventilation">Ventilação</p>
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Tipo</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.ventilation" formControlName="ventilation"
+          [matTooltip]="toolTips.ventType">
+          <mat-option value="NATURAL">
+            Natural
+          </mat-option>
+          <mat-option value="MISTO">
+            Misto
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline" class="formField">
+        <mat-label>Recondicionamento de janelas</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.retrofit" formControlName="retrofit"
+          [matTooltip]="toolTips.retrofit">
+          <mat-option value="1">
+            Sim
+          </mat-option>
+          <mat-option value="0">
+            Não
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr>
+
+  <p>Piso</p>
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Piso no edifício</mat-label>
+        <mat-select [(ngModel)]="this.avaliation.room.floor" formControlName="floor"
+        [matTooltip]="toolTips.floor">
+        <mat-option value="-1">
+          Cave
+        </mat-option>
+        <mat-option value="0">
+          Rés do chão
+        </mat-option>
+        <mat-option value="1">
+          Piso 1
+        </mat-option>
+        <mat-option value="2">
+          Piso 2
+        </mat-option>
+        <mat-option value="3">
+          Piso 3 ou superior
+        </mat-option>
+      </mat-select>
+
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field class="formField" appearance="outline">
+        <mat-label>Nº de pisos abaixo</mat-label>
+        <input matInput type="number" [(ngModel)]="this.avaliation.room.nBellowFloors" formControlName="nBellowFloors"
+          [matTooltip]="toolTips.nBellowFloors" />
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr>
+  <mat-grid-list cols="1" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline" class="emailField">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+          placeholder="Ex. pat@example.com" [(ngModel)]="this.avaliation.email" formControlName="email"
+          [matTooltip]="toolTips.email">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Por favor insira um endereço de email válido
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          O email é <strong>obrigatório</strong>
+        </mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="submitBtn">
+    <button class="submitData" mat-raised-button color="primary" (click)="submitClick()"
+      [disabled]="!form.valid">Avaliar</button>
+  </div>
+</form>
+<mat-spinner *ngIf="isLoading" class="spinnerCont"></mat-spinner>
+<div *ngIf="showLocationSelect" style="color: red; justify-content: center; margin-top: 20px; font-weight: bold;">Por favor selecione um localização.</div>
+
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Material do piso</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let floor of floors" [value]="floor.value">
+      {{ floor.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<!-- <mat-form-field appearance="fill">
+  <mat-label>Material das paredes</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let wall of walls" [value]="wall.value">
+      {{ wall.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Nº Pisos abaixo</mat-label>
+  <input matInput type="number" min="0" [(ngModel)]="bellowValue" />
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Retrofit</mat-label>
+  <mat-select>
+    <mat-option value="1">Sim</mat-option>
+    <mat-option value="0">Não</mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<!-- <mat-form-field class="age-form-field">
+  <mat-label>Ano de construção</mat-label>
+  <input
+    matInput
+    type="number"
+    max="2050"
+    min="1400"
+    required
+    placeholder="Ano"
+    ngModel
+    [formControl]="ageControl"
+  />
+</mat-form-field> -->
+<!-- <mat-form-field>
+  <jp-multi-datepicker
+    tabindex="-1"
+    mode="YEAR"
+    label="Choose a year"
+    [(ngModel)]="chosenYearDate"
+    [max]="2020"
+  >
+  </jp-multi-datepicker>
+</mat-form-field> -->

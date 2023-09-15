@@ -1,0 +1,38 @@
+.formField {
+  width: 90%;
+}
+
+.Btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fieldInput {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  text-align: center;
+}
+
+.submitData {
+  width: 50%;
+  display: block;
+}
+
+.Btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.formContainer {
+  margin: 20px;
+  /* border: 1px solid red; */
+}
+
+@media only screen and (max-width: 768px) {
+  .formContainer {
+    margin: 10px;
+    /* border: 1px solid red; */
+  }
+}

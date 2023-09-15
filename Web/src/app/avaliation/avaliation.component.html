@@ -1,0 +1,95 @@
+<div>
+  <h3 class="title">Características do edifício</h3>
+  <mat-grid-list cols="2" rowHeight="30px">
+    <mat-grid-tile>
+      <p>Idade: {{ this.avaliation.building.age }}</p>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <p>Nº de pisos: {{ this.avaliation.building.nFloors }}</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr />
+  <h3 class="title">Características do compartimento</h3>
+
+  <mat-grid-list cols="2" rowHeight="50px">
+    <mat-grid-tile class="roomData">
+      <p>
+        Material do piso: {{ this.avaliation.room.floorBase }} e
+        {{ this.avaliation.room.floorFinish }}
+      </p>
+    </mat-grid-tile>
+    <mat-grid-tile class="roomData">
+      <p>
+        Material das paredes: {{ this.avaliation.room.wallBase }} e
+        {{ this.avaliation.room.wallFinish }}
+      </p>
+    </mat-grid-tile>
+    <mat-grid-tile class="roomData">
+      <p>Ventilação: {{ this.avaliation.room.ventilation }}</p>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="roomData">
+      <p>Retrofit: {{ this.avaliation.room.retrofit == 0 ? "Não" : "Sim" }}</p>
+    </mat-grid-tile>
+    <mat-grid-tile class="roomData">
+      <p>Piso: {{ this.avaliation.room.floor }}</p>
+    </mat-grid-tile>
+    <mat-grid-tile class="roomData">
+      <p>Nº de pisos abaixo: {{ this.avaliation.room.nBellowFloors }}</p>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr />
+  <p>Email: {{ this.avaliation.email }}</p>
+</div>
+<hr />
+<div>
+  <h2 class="title">Avaliação</h2>
+  
+  <h2 class="classification" [ngStyle]="{color: classColor}">{{ this.classText }}</h2>
+  <hr>
+  <h4>{{this.classRecomend}}</h4>
+</div>
+<div *ngIf="avaliation.reading != null">
+  <hr>
+  <h3 class="title">Leituras</h3>
+  <div class="readingsContainer">
+    <mat-table  [dataSource]="this.avaliation.reading">
+      <ng-container matColumnDef="period">
+        <mat-header-cell  *matHeaderCellDef> Periodo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.startDate | date: "dd-MM-yyyy"}} - {{element.endDate | date: "dd-MM-yyyy"}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.value}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="device">
+        <mat-header-cell  *matHeaderCellDef> Dispositivo </mat-header-cell>
+        <mat-cell  *matCellDef="let element"> {{element.device}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+
+  </div>
+
+
+  <!-- <mat-grid-list cols="2" rowHeight="30px">
+      <mat-grid-tile>
+        <p>Valor medido: {{ this.avaliation.reading.value }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <p>Dispositivo: {{ this.avaliation.reading.device }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <p>Data de início: {{ this.avaliation.reading.startDate | date: "dd-MM-yyyy"}}</p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <p>Data de fim: {{ this.avaliation.reading.endDate | date: "dd-MM-yyyy"}}</p>
+        </mat-grid-tile>
+
+    </mat-grid-list> -->
+</div>

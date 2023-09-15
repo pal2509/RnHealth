@@ -1,0 +1,29 @@
+.ol-map {
+  width: auto;
+  height: 800px;
+  margin: auto;
+}
+
+.mapContainer {
+  margin: 10px;
+  /* border: 1px solid red; */
+  width: 50%;
+}
+
+.cardContainer{
+  display: flex;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+}
+.avaliation{
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 50%;
+}
+
+.makeSelected{
+  background: rgba(165, 165, 165, 0.24);
+}
+

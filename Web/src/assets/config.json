@@ -1,0 +1,4 @@
+{
+    "openLayersMap": "https://nominatim.openstreetmap.org/search.php",
+    "RnAPI": "http://localhost:8000/"
+}

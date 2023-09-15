@@ -1,0 +1,22 @@
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.11
+
+# Copy the app directory into the container
+COPY . /app
+
+# Install dependencies
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+ENV mongoConnString="mongodb://rnadmin:change-me@rnmongo:27017/?authMechanism=DEFAULT"
+ENV MONGO_DB_NAME="RnHealthDB"
+ENV MONGO_USERNAME="rnadmin"
+ENV MONGO_PASSWORD="change-me"
+ENV modelFile="randomForest.joblib"
+ENV appEmail=""
+ENV appEmailPwd="change-me"
+ENV appEmailSMTP="smtp.office365.com"
+ENV appEmailSMTPPort=587
+ENV appUrl="http://localhost:50003/"
+ENV secretKey="change-me"
+
+# Start the server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]

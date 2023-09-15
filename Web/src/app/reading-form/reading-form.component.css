@@ -1,0 +1,129 @@
+.tokenSubmitCard {
+  width: fit-content;
+  display: flex;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.cardContainerDiv{
+  padding-bottom: 20px;
+}
+.title {
+  text-align: center;
+}
+
+.submitData {
+  width: 100%;
+  display: block;
+  
+}
+
+.ol-map {
+  width: auto;
+  height: 500px;
+  margin: auto;
+  /* border: 1px solid red; */
+}
+
+.mapContainer {
+  margin: 10px;
+  /* border: 1px solid red; */
+}
+
+.formContainer {
+  margin: 10px;
+  /* border: 1px solid red; */
+}
+
+.mapCard {
+  width: 100%;
+}
+
+.addressField {
+  width: 100%;
+}
+
+.avaliationData,
+.mat-grid-tile-content {
+  justify-content: left !important;
+}
+
+.readingContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.formField {
+  width: 95%;
+}
+
+.Btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fieldInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CardContent {
+  height: auto;
+}
+
+.cardContainer{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer{
+  width: 100%;
+}
+
+.btnContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.addBtn{
+  width: 200px;
+}
+
+@media screen and  (min-height: 900px){
+  .cardContainerDiv{
+      height: 100vh;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .cardContainerDiv{
+    height: auto;
+  }
+
+  .cardContainer{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .readingContainer {
+    display: block;
+
+    width: 100%;
+  }
+
+  .ol-map {
+    width: auto;
+    height: 200px;
+    margin: auto;
+    /* border: 1px solid red; */
+  }
+}

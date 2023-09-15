@@ -1,0 +1,99 @@
+.readingsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    height: 900px;
+
+}
+
+.wrapper{
+padding-bottom: 20px;
+}
+
+.cardList{
+    width: 95%;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.paginator{
+    margin-top: auto;
+}
+
+.detailsCard{
+    width: 95%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: inherit;
+}
+
+.card{height: inherit;}
+
+.avalProps{
+    display: flex;
+}
+
+.avalPropLocation{
+    margin-left: 50px;
+}
+
+.avalPropClass{
+    margin-left: auto;
+}
+
+.selected {
+    background-color: #bebebe; /* Or any color you want */
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and  (min-height: 900px){
+    .wrapper{
+        height: 100vh;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .readingsContainer{
+        display: block;
+        justify-content: space-evenly;
+        height: auto;
+    }
+    .wrapper{
+        height: auto;
+        }
+
+    .cardList{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .paginator{
+        margin-top: auto;
+    }
+
+    .detailsCard{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        height: inherit;
+    }
+
+    .avalPropLocation{
+        margin-left: 10px;
+    }
+    
+    .avalPropClass{
+        margin-left: 10px;
+    }
+    
+}

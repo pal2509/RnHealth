@@ -1,0 +1,65 @@
+.logo {
+  height: inherit;
+  padding-right: 1%;
+}
+
+.link_main {
+  height: 100%;
+  padding-top: 0px;
+  padding-right: 15px;
+  margin-left: 5%;
+}
+
+.loginBtn {
+  margin-right: 5%;
+  margin-left: auto;
+}
+
+.logoutBtn {
+  margin-right: 5%;
+  margin-left: auto;
+  
+}
+
+.btn {
+  width: 120px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.toolbar{
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.mobileContainer{
+  display: none;
+}
+.desktopContainer{
+  display: flex;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+
+  .desktopContainer{
+    display: none;
+  }
+  .mobileContainer{
+    display: flex;
+    width: 100%;
+  }
+  .toolbar{
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .homeBtn{
+    margin-right: 0px;
+    margin-left: auto;
+  }
+
+}
+
+
+

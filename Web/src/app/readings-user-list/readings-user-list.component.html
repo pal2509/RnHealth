@@ -1,0 +1,49 @@
+<div class="wrapper">
+
+
+<div class="readingsContainer">
+    <div class="cardList">
+
+        <mat-card
+            *ngFor="let avaliation of avaliations | slice:(currentPageIndex * pageSize):(currentPageIndex * pageSize) + pageSize; let i = index"
+            (click)="selectAvaliation(avaliation)" style="margin-bottom: 10px;"
+            [ngClass]="{'selected': i === selectedCardIndex}" (click)="selectedCardIndex = i">
+            <mat-card-content class="avalProps">
+                <p class="avalPropDate">{{avaliation.created_At | date: "dd-MM-yyyy"}}</p>
+                <p class="avalPropLocation">{{avaliation.location.address}}, {{avaliation.location.city}} </p>
+                <p class="avalPropClass" *ngIf="avaliation.classification == 0" style="color: #0ebd08">Baixo</p>
+                <p class="avalPropClass" *ngIf="avaliation.classification == 1" style="color: #f28a0a">Médio</p>
+                <p class="avalPropClass" *ngIf="avaliation.classification == 2" style="color: #e00909">Alto</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-paginator [length]="this.dataLength" [pageSize]="pageSize" aria-label="Select page"
+            (page)="onPageChanged($event)" class="paginator">
+        </mat-paginator>
+    </div>
+
+
+    <div class="detailsCard">
+        <div *ngIf="selectedAvaliation == null; else elseBlock">
+
+        </div>
+        <ng-template #elseBlock>
+            <mat-card class="card">
+                <mat-card-content>
+                    <app-avaliation [avaliation]="selectedAvaliation"></app-avaliation>
+                    <hr>
+                    <div class="btnContainer">
+                        <button class="addBtn" mat-raised-button color="primary" (click)="addReading()">
+                            Adicionar leitura
+                        </button>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+        </ng-template>
+
+    </div>
+
+</div>
+</div>
+
+<app-footer class="footer"></app-footer>

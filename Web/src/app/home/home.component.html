@@ -1,0 +1,94 @@
+<div>
+  <div class="container slider">
+    <div [@slideAnimation]="currentIndex">
+      <ng-template ngFor [ngForOf]="slides" let-slide let-i="index">
+        <img class="slide slide-animation nonDraggableImage" *ngIf="isCurrentSlideIndex(i)" (swiperight)="nextSlide()"
+          (swipeleft)="prevSlide()" [src]="slide.image">
+      </ng-template>
+    </div>
+
+    <button class="arrow prev" (click)="nextSlide()"></button>
+    <button class="arrow next" (click)="prevSlide()"></button>
+    <nav class="nav">
+      <div class="wrapper">
+        <ul class="dots">
+          <li class="dot" *ngFor="let slide of slides; let i = index;">
+            <span [ngClass]="{'active':isCurrentSlideIndex(i)}"
+              (click)="setCurrentSlideIndex(i);">{{slide.description}}</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+<div>
+
+
+  <div class="mainContent">
+
+
+    <div class="containerInfo">
+      <mat-card class="radonInfo">
+        <mat-card-content>
+          <div class="contentInfo">
+            <h2 style="text-align: center;">Radão</h2>
+
+            <p>O radão é um gás incolor e indoro, que se forma naturalmente através de processo naturais que ocorrem no
+              solo. Este gás apresenta riscos para a saúde nomeadamente aumentado o risco de cancro do pulmão.
+
+            </p>
+            <p>No norte de Portugal existe maior potencial de exposição devido ás condições geológicas presentes.</p>
+            <p>Por causa disto foi criado um avaliador do potencial de radão em compartimentos de um edifício. Este pode
+              ser acedido no menu superior ou por <a href="/avaliation">aqui</a>.</p>
+
+            <hr>
+            <h1 style="text-align: center;">Projeto Tech</h1>
+            <p>O projeto TECH - Tecnologia, Ambiente, Criatividade e Saúde pretende encontrar soluções para problemas
+              regionais identificados por instituições e parceiros na comunidade.
+            </p>
+            <p>Este projeto insere-se numas das três vertentes do projeto Tech, a Health Tech, que procura a adopção de
+              novas tecnologias ao serviço da saúde que possam ter impacto positivo na prevenção e promoção da saúde
+              através do uso de sensores e inteligência artifical.</p>
+            <p>Esta a ativiade do projeto desenvolve soluções para a monitorização e avaliação do potencial de radão
+              para conscientalizar e reduzir os riscos de exposição.</p>
+              <h5>Mais informações</h5>
+              <a href="https://2ai.ipca.pt/projects2ai/tech-tecnologia-ambiente-criatividade-e-saude/">Mais informação
+                sobre o projeto no IPCA</a>
+              <br> 
+              <a href="https://tech.ipvc.pt/projeto.php?id_projeto=167">Mais informação
+                sobre o projeto no IPVC</a>
+              <br>
+              <a href="radon">Mais informação sobre o radão</a>
+
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+
+    </div>
+
+  </div>
+
+
+  <div class="newsSlider">
+
+
+
+    <mat-card *ngFor="let n of news" class="newsCard" (click)="openNew(n)">
+      <mat-card-content class="newsContent">
+        <h3 class="newsTitle">{{n.title}}</h3>
+        <img src="{{n.image}}" class="newsImage">
+        <p class="newsText">{{n.mainText}}</p>
+      </mat-card-content>
+    </mat-card>
+
+
+
+
+
+  </div>
+</div>
+
+<app-footer class="footer"></app-footer>

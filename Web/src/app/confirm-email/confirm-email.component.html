@@ -1,0 +1,35 @@
+<div>
+    <h3>Confirmação de email</h3>
+    <p>Por favor verifique se recebeu um email com um link de acesso à sua avaliação.</p>
+    <div *ngIf="!form; else elseBlock">
+
+
+        <h3>Email: {{this.avaliation.email}}
+        </h3>
+        <div class="btnContainer" *ngIf="!form">
+            <button class="btn" mat-raised-button color="primary" (click)="changeEmailClick()">Alterar</button>
+            <button class="btn" mat-raised-button color="primary" (click)="confirmEmailClick()">Confirmar</button>
+        </div>
+    </div>
+    <ng-template #elseBlock class="formContainer">
+        <div>
+            <mat-form-field appearance="outline" class="emailField">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Ex. pat@example.com"
+                    [(ngModel)]="this.avaliation.email">
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Por favor insira um endereço de email válido
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                    O email é <strong>obrigatório</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="btnContainer">
+            <button class="btn" mat-raised-button color="primary" (click)="updateEmailClick()">Guardar</button>
+        </div>
+
+    </ng-template>
+
+
+</div>
