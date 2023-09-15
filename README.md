@@ -11,4 +11,8 @@ The docker compose generates a container with 3 services, one for each compoment
 
 > To run this application in docker use:
 
-´docker compose up´
+`docker compose up`
+
+> To recreate the container and force the re-building of the images use:
+
+`docker compose up --build`
