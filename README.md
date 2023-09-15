@@ -10,4 +10,5 @@ There are 3 folders containing the required services to run this application:
 The docker compose generates a container with 3 services, one for each compoment of the application. All the envoirement variables necessary are contained in the dockerfiles of each service in it's respective folder.
 
 > To run this application in docker use:
+
 ´docker compose up´
