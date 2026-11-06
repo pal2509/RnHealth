@@ -1,15 +1,8 @@
-FROM mongo:latest
+FROM mongo:6
 
-ENV MONGO_INITDB_ROOT_USERNAME=rnadmin
-ENV MONGO_INITDB_ROOT_PASSWORD=change-me
+# The root user and password come from .env through docker-compose.yml.
 ENV MONGO_INITDB_DATABASE=RnHealthDB
 
 COPY /init_data /docker-entrypoint-initdb.d
 
-
-EXPOSE 27017:27017
-
-
 CMD ["mongod", "--auth"]
-
-

@@ -8,7 +8,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from emailUtil import sendEmail
 from routers.materials import router as materials_router
-from routers.auth import router as auth_router
+from routers.auth import router as auth_router, get_password_hash
+from dbUtils import get_database
 from routers.avaliation import router as avaliation_router
 from routers.stats import router as stats_router
 from routers.news import router as news_router
@@ -44,6 +45,16 @@ app.add_middleware(
 
 
 
+
+
+# The first admin comes from .env, so no account ships with the code.
+@app.on_event("startup")
+def createAdmin():
+    email = os.environ.get("ADMIN_EMAIL")
+    password = os.environ.get("ADMIN_PASSWORD")
+    admins = get_database()["Admin"]
+    if email and password and not admins.find_one({"email": email}):
+        admins.insert_one({"name": "Admin", "email": email, "password": get_password_hash(password), "disabled": False})
 
 
 # @app.get("/")

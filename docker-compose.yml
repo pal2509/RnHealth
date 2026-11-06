@@ -1,8 +1,8 @@
-version: '3.8'
 services:
   backend:
     build:
       context: ./RnAPI
+    env_file: .env
     depends_on:
       - rnmongo
     ports:
@@ -23,14 +23,15 @@ services:
   rnmongo:
     build:
       context: ./RnHealthDB
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:?set it in .env}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:?set it in .env}
     volumes:
       - mongodbdata:/data/db
     restart: unless-stopped
-    ports:
-      - '27017:27017'
     networks:
-      - rnhealth  
+      - rnhealth
 volumes:
-  mongodbdata: 
+  mongodbdata:
 networks:
   rnhealth:
